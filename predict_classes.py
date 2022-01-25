@@ -77,9 +77,9 @@ def main():
             print(df)
 
             # Finally export to files
-            df.to_csv("MultiClass_predictions_1.csv", index=False)
-            df.to_json("MultiClass_predictions_1.json", orient='records')
-            df.to_excel("MultiClass_predictions_1.xlsx")
+            df.to_csv("predictions.csv", index=False)
+            df.to_json("predictions.json", orient='records')
+            df.to_excel("predictions.xlsx")
 
     # Call functions
     floor_plan_prediction_single()
