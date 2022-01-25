@@ -33,6 +33,7 @@ def create_MultiClassifier():
     classifier.add(Flatten())
 
     # Step 4 - Full connection, at least 3 units in last layer
+    classifier.add(Dense(activation="relu", units=128))
     classifier.add(Dense(activation="softmax", units=3))
 
     # Compiling the CNN
@@ -96,7 +97,7 @@ def main():
                                     histogram_freq=1),  # Run with:tensorboard --logdir currentfolder (with logs)
         keras.callbacks.CSVLogger(f'training_log{datetime.datetime.now().strftime("%Y%m%d-%H%M%S")}.csv',
                                   separator=",", append=False),
-        keras.callbacks.ModelCheckpoint(filepath='fitted_classifier.hdf5',
+        keras.callbacks.ModelCheckpoint(filepath='fitted_model.hdf5',
                                         save_best_only=True,
                                         save_weights_only=False,
                                         monitor='accuracy',
@@ -114,7 +115,7 @@ def main():
     # Save the models final state
     def save_classifier():
         classifier.save(
-            "MultiClassifier.hdf5",
+            "your_trained_model.hdf5",
             overwrite=True)
 
         print("Trained model successfully saved to disk!")

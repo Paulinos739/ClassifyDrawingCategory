@@ -13,7 +13,7 @@ def load_MultiClassifier():
 
     # load pretrained model
     classifier = load_model(
-        "trained_model", compile=False)
+        "trained_model.hdf5", compile=False)
 
     # Compiling the CNN
     opt = keras.optimizers.Adam(learning_rate=0.01)

@@ -14,18 +14,18 @@ import os
 import pandas as pd
 
 
-# load trained classifier
+# load trained classifier, hdf5-file in this case
 def MultiClassifier():
     classifier = load_model(
-        'fitted_classifier/600ep/MultiClassifier-1907_600ep.hdf5',
+        'your_trained_model.hdf5',
         compile=True)
     return classifier
 
 
 def main():
-    def floor_plan_prediction_single(predict=False):
+    def floor_plan_prediction_single(predict=True):
         if predict:
-            img_path = "validation_data\\elevation6.png"
+            img_path = "validation\your_drawing.jpg"
             img = image.load_img(img_path, target_size=(64, 64))
             img_array = image.img_to_array(img)
             img_array = np.expand_dims(img_array, axis=0)
@@ -36,7 +36,7 @@ def main():
     def floor_plan_prediction_multiple(predict=True):
         if predict:
             # image folder
-            folder_path = 'validation_data'
+            folder_path = 'validation'
             # dimensions of images, given by the CNN input dim
             img_width, img_height = 64, 64
 
@@ -61,7 +61,6 @@ def main():
             from scipy.special import softmax
             confidence = softmax(predictions)
             confidence = np.around(confidence, decimals=2)
-            sum_confidence = np.ndarray.sum(confidence, axis=1)
 
             # Then prepare the export as csv, json and xlsx
             filenames_list = os.listdir(folder_path)
@@ -69,17 +68,16 @@ def main():
             lst1 = filenames_list
             lst2 = predictions
             lst3 = confidence
-            lst4 = sum_confidence
 
             # Call DataFrame constructor after zipping, with columns specified
-            df = pd.DataFrame(list(zip(lst1, lst2, lst3, lst4)),
-                              columns=['sample', 'label', 'confidence', 'sum'])
+            df = pd.DataFrame(list(zip(lst1, lst2, lst3)),
+                              columns=['sample', 'label', 'confidence'])
             print(df)
 
             # Finally export to files
-            df.to_csv("predictions.csv", index=False)
-            df.to_json("predictions.json", orient='records')
-            df.to_excel("predictions.xlsx")
+            df.to_csv("metadata\predictions.csv", index=False)
+            df.to_json("metadata\predictions.json", orient='records')
+            df.to_excel("metadata\predictions.xlsx")
 
     # Call functions
     floor_plan_prediction_single()
