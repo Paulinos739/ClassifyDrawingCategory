@@ -1,9 +1,11 @@
 # Architectural Drawing Classification with Deep Learning
 
-This Multi-Class Classification network, implemented with Keras, is used
-here to develop a Computer Vision model capable to classify architectural drawings.
+This Multi-Class Classification network, implemented with Keras,
+is used to develop a Computer Vision model capable to classify
+architectural drawings.
 
-###Background
+##Background
+
 The aim of this project is to make the power of Computer Vision useful
 to automatically sort and analyze the building-related data.
 Here, a CNN is trained to distinguish between three types of
@@ -19,7 +21,7 @@ from the [TU Darmstadt](https://www.tu-darmstadt.de/index.en.jsp).
 Due to copyright issues, the data used to train the models can not be publicly
 shared in this repository.
 
-###Usage
+##Usage
 
 **multi_class_classification.py**
 
@@ -43,6 +45,7 @@ This creates the drawings relevant metadata in a machine-readable format
 The predictions will be converted to a list containing all information, using the pandas DataFrame method.
 Available formats are: **.csv / .xlxs / .json**
 
+![](metadata/list_predictions.png)
 
-### Queries
+## Queries
 For questions or further ideas, email me at paul.arch@web.de
