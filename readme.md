@@ -47,5 +47,12 @@ Available formats are: **.csv / .xlxs / .json**
 
 ![](metadata/list_predictions.png)
 
+
+**continue_training.py**
+
+This file can be used to optimize the trained model. You can use
+different data or model architecture to optimize the layer weights.
+
+
 ## Queries
 For questions or further ideas, email me at paul.arch@web.de
