@@ -4,7 +4,7 @@ This Multi-Class Classification network, implemented with Keras,
 is used to develop a Computer Vision model capable to classify
 architectural drawings.
 
-##Background
+## Background
 
 The aim of this project is to make the power of Computer Vision useful
 to automatically sort and analyze the building-related data.
@@ -21,7 +21,7 @@ from the [TU Darmstadt](https://www.tu-darmstadt.de/index.en.jsp).
 Due to copyright issues, the data used to train the models can not be publicly
 shared in this repository.
 
-##Usage
+## Usage
 
 **multi_class_classification.py**
 
